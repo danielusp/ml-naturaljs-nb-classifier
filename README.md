@@ -23,7 +23,7 @@ npm run train
 Just predict based on training file and testing data set
 
 ```
-npm run train
+npm run predict
 ```
 
 ## Data Set
