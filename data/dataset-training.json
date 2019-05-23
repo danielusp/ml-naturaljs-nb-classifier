@@ -1,0 +1,14 @@
+[
+    {"text": "I need to buy a new computer","class": "hardware"},
+    {"text": "I need to clean the code","class": "software"},
+    {"text": "We need to buy a new hard drive","class": "hardware"},
+    {"text": "i need a new power supply","class": "hardware"},
+    {"text": "The motherboard is broken","class": "hardware"},
+    {"text": "We are running out of memory storage","class": "hardware"},
+    {"text": "The computer is new","class": "hardware"},
+    {"text": "The unit test failed","class": "software"},
+    {"text": "The code works well","class": "software"},
+    {"text": "I want to refactor the program","class": "software"},
+    {"text": "program","class": "software"},
+    {"text": "You have to push the code to github","class": "software"}
+]
