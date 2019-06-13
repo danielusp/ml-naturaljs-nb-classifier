@@ -26,6 +26,11 @@ Just predict based on training file and testing data set
 npm run predict
 ```
 
+## Output
+
+- Dataset testing list with predictions
+- Prediction measurement (between 0 and 1)
+
 ## Data Set
 
 Training data set in ***data/dataset-training.json*** file

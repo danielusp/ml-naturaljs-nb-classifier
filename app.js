@@ -1,9 +1,10 @@
 const natural = require('natural');
+const measurement = require('./lib/measurement');
 
 (async (type = 'trainPredict') => {
     let msgColor = "";
 
-    // Define module baser on user enter
+    // Define module based on user enter
     switch(type) {
         case 'train':
             break;
@@ -29,6 +30,13 @@ const natural = require('natural');
             break;
     }
 
-    console.log(msgColor,result.msg);
+    console.log(msgColor, result.msg);
+
+    // Prediction measurement
+    let res = {};
+    if(type !== 'train') {
+        res = measurement(result.msg);
+        console.log(msgColor, "\n" , `Prediction measurement: ${res.perc}`);
+    }
 
 })(process.argv[2]);

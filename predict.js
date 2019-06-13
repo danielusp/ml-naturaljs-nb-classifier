@@ -12,7 +12,7 @@ module.exports = natural => {
         const dataTesting = JSON.parse(fs.readFileSync('data/dataset-testing.json'));
 
         // Load trained classifier
-        natural.BayesClassifier.load('data/nlp_trained.json', null, async (err, classifier) => {
+        natural.BayesClassifier.load('data/trained/nlp.trained.json', null, async (err, classifier) => {
             if(err) {
                 resolve({
                     error: true,
@@ -39,10 +39,14 @@ module.exports = natural => {
 const predict = (data, classifier) => {
     return new Promise(resolve => {
         const result = data.map( item => {
+            const classification = classifier.classify(item.text);
+
             return {
                 text: item.text, 
-                class: classifier.classify(item.text)
+                class: classification,
+                prediction: classification === item.class? true : false
             };
+            
         },[]);
         
         resolve(result);

@@ -19,9 +19,12 @@ module.exports = async (natural) => {
 
     // Predict from testing dataset
     const result = dataTesting.map( item => {
+        const classification = classifier.classify(item.text);
+        
         return {
-            text: item.text, 
-            class: classifier.classify(item.text)
+            text: item.text,
+            class: classification,
+            prediction: classification === item.class? true : false
         };
 
     },[]);
