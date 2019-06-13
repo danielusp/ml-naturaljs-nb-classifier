@@ -1,4 +1,5 @@
 const fs = require('fs');
+const config = require('./config');
 
 /**
  * Train the NLP and save the training into a file
@@ -11,7 +12,7 @@ module.exports = natural => {
         const classifier = new natural.BayesClassifier();
 
         // Prepare dataset
-        const dataTraining = JSON.parse(fs.readFileSync('data/dataset-training.json'));
+        const dataTraining = JSON.parse(fs.readFileSync(config.source.training));
 
         dataTraining.forEach( item => {
             classifier.addDocument(item.text, item.class);

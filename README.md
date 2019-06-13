@@ -8,6 +8,25 @@ NLP classifier based on Naive Bayes
 npm install
 ```
 
+## Data Input
+
+Array of objects
+
+Example:
+
+```
+[
+    {
+        text: 'some text',
+        class: 'class name'
+    },
+    ....
+]
+```
+NLP classifier going to train the 'text' propertie with 'class'
+
+After training the predictor is going to guess if a 'text' is related with 'class'
+
 ## How to use
 
 Run the complete process: train and predict

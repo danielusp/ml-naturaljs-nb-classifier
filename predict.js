@@ -1,4 +1,5 @@
 const fs = require('fs');
+const config = require('./config');
 
 /**
  * Predicts based on pre-trained file and testing set
@@ -9,10 +10,10 @@ const fs = require('fs');
 module.exports = natural => {
     return new Promise(async (resolve) => {
         // Prepare dataset
-        const dataTesting = JSON.parse(fs.readFileSync('data/dataset-testing.json'));
+        const dataTesting = JSON.parse(fs.readFileSync(config.source.testing));
 
         // Load trained classifier
-        natural.BayesClassifier.load('data/trained/nlp.trained.json', null, async (err, classifier) => {
+        natural.BayesClassifier.load(config.source.trained, null, async (err, classifier) => {
             if(err) {
                 resolve({
                     error: true,
