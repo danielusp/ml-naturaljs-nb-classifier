@@ -32,7 +32,7 @@ const measurement = require('./lib/measurement');
             break;
     }
 
-    console.log(msgColor, result.msg);
+    console.table(result.msg);
 
     // Prediction measurement
     let res = {};
