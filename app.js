@@ -27,6 +27,8 @@ const measurement = require('./lib/measurement');
             break;
         case true:
             msgColor = "\x1b[31m";
+            console.log(msgColor, "\n", result.msg);
+            process.exit(0);
             break;
     }
 
