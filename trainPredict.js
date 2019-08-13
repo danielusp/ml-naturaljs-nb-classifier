@@ -1,5 +1,6 @@
 const fs = require('fs');
 const config = require('./config');
+const predict = require('./lib/predict');
 
 /**
  * Train and predict in one flux
@@ -19,16 +20,7 @@ module.exports = async (natural) => {
     await classifier.train();
 
     // Predict from testing dataset
-    const result = dataTesting.map( item => {
-        const classification = classifier.classify(item.text);
-        
-        return {
-            text: item.text,
-            class: classification,
-            prediction: classification === item.class? true : false
-        };
-
-    },[]);
+    const result = await predict(dataTesting, classifier);
 
     return {
         error: false,

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const config = require('./config');
+const predict = require('./lib/predict');
 
 /**
  * Predicts based on pre-trained file and testing set
@@ -22,34 +23,11 @@ module.exports = natural => {
             }
 
             const result = await predict(dataTesting, classifier);
+            
             resolve({
                 error: false,
                 msg: result
             });
         });
-    });
-};
-
-/**
- * Predicts for testing set
- * 
- * @param {Object} data 
- * @param {Object} classifier 
- * @return {Object}
- */
-const predict = (data, classifier) => {
-    return new Promise(resolve => {
-        const result = data.map( item => {
-            const classification = classifier.classify(item.text);
-
-            return {
-                text: item.text, 
-                class: classification,
-                prediction: classification === item.class? true : false
-            };
-            
-        },[]);
-        
-        resolve(result);
     });
 };
