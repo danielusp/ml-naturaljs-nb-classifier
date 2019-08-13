@@ -1,6 +1,6 @@
 # NLP Naive Bayes Classifier with natural.js
 
-NLP classifier based on Naive Bayes
+NLP classifier based on Naive Bayes (Node.js >= v10)
 
 ## How to install
 
